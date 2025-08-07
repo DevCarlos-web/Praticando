@@ -10,31 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Função para definir o link ativo com base na URL atual (para páginas e âncoras)
-    function setActiveLink() {
-        clearActiveLinks();
-        const currentPath = window.location.pathname.split('/').pop();
-        const currentHash = window.location.hash;
-        
-        navLinks.forEach(link => {
-            const linkHref = link.getAttribute('href');
-            
-            // Lógica para links de âncora (na mesma página)
-            if (linkHref.startsWith('#')) {
-                if (linkHref === currentHash) {
-                    link.classList.add('active');
-                }
-            } 
-            // Lógica para links de páginas separadas
-            else {
-                const linkPath = linkHref.split('/').pop();
-                if (currentPath === linkPath || (currentPath === '' && linkPath === 'index.html')) {
-                    link.classList.add('active');
-                }
-            }
-        });
-    }
-
     // Monitora a rolagem da página para atualizar o link ativo
     const observerOptions = {
         root: null,
@@ -46,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const id = entry.target.getAttribute('id');
-                const activeLink = document.querySelector(`.nav-principal a[href="#${id}"]`);
+                const activeLink = document.querySelector(`.nav-principal a[href*="#${id}"]`);
                 if (activeLink) {
                     clearActiveLinks();
                     activeLink.classList.add('active');
@@ -59,13 +34,24 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // Chama a função para ativar o link na carga inicial da página
-    setActiveLink();
-    
-    // Lida com a mudança de âncora na URL
-    window.addEventListener('hashchange', setActiveLink);
+    // Lógica para que a navegação interna funcione corretamente ao clicar
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+                // Previne o comportamento padrão para gerenciar a rolagem de forma suave
+                event.preventDefault(); 
+                const targetId = href.substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
 
-    /* --- Funções para a galeria de fotos (código mantido) --- */
+
+    /* --- Funções para a galeria de fotos --- */
     const linksGaleria = document.querySelectorAll('.galeria-container a');
     const modal = document.getElementById('modal-imagem');
     const imagemModal = document.querySelector('.modal-conteudo');

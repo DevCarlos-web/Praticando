@@ -40,7 +40,7 @@ header {
     display: flex;
     padding: 20px 0;
     height: 160px;
-    
+    background-color: transparent;
     justify-content: center;
     box-shadow: rgba(108, 170, 231, 0.418) 0px 20px 30px -10px;    
 }
@@ -118,21 +118,23 @@ nav li a.active{
     /* Faz a seção ocupar toda a altura da tela */
     min-height: 100vh;
     padding: 20px;
+    color: #333; /* Adicionado: Garante que a cor do texto seja a mesma */
 }
 
 #inicio {
     /* Exemplo: Um fundo claro para diferenciar */
-    background-color: #f0f8ff; 
+    background-color: transparent;
 }
 
 #atividades {
     /* Exemplo: Um fundo um pouco mais escuro */
-    background-color: #e6e6fa;
+    background-color: transparent;
 }
+
 
 #doacoes {
     /* Exemplo: Outro fundo para diferenciar */
-    background-color: #f5f5dc;
+    background-color: transparent;
 }
 
 /* ================== */
