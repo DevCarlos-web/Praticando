@@ -40,7 +40,7 @@ header {
     display: flex;
     padding: 20px 0;
     height: 160px;
-    background-color: transparent;
+    
     justify-content: center;
     box-shadow: rgba(108, 170, 231, 0.418) 0px 20px 30px -10px;    
 }
@@ -298,4 +298,11 @@ footer {
         font-size: 24px;
         margin: 20px;
     }
+}
+
+/* Torna o conteúdo invisível e evita que ocupe espaço */
+.ocultar-conteudo {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
 }

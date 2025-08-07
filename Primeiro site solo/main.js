@@ -66,6 +66,34 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('hashchange', setActiveLink);
 
 
+    /* --- LÓGICA PARA OCULTAR CONTEÚDO AO PASSAR PELO HEADER --- */
+    const headerHeight = document.querySelector('header').offsetHeight;
+    const sectionsToHide = document.querySelectorAll('#inicio, #atividades, #doacoes');
+
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+
+        sectionsToHide.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+
+            // Verifica se a seção está passando por baixo do cabeçalho
+            if (scrollPosition > sectionTop - headerHeight && scrollPosition < sectionTop + sectionHeight) {
+                // Adiciona a classe de invisibilidade apenas ao texto
+                const content = section.querySelector('h1, p, .galeria-container');
+                if (content) {
+                     content.classList.add('ocultar-conteudo');
+                }
+            } else {
+                // Remove a classe quando a seção não está mais na área do cabeçalho
+                const content = section.querySelector('h1, p, .galeria-container');
+                if (content) {
+                    content.classList.remove('ocultar-conteudo');
+                }
+            }
+        });
+    });
+
     /* --- Funções para a galeria de fotos (código mantido) --- */
     const linksGaleria = document.querySelectorAll('.galeria-container a');
     const modal = document.getElementById('modal-imagem');
