@@ -20,6 +20,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    padding-top: 160px; /* Igual à altura do seu cabeçalho */
 }
 html {
     scroll-behavior: smooth;
@@ -28,10 +29,17 @@ html {
 /* Estilos do Cabeçalho e Nav   */
 /* ============================ */
 header {
+    /* Adiciona a posição fixa no topo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Garante que ocupe a largura total */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    
+    /* Mantém os estilos de layout */
     display: flex;
     padding: 20px 0;
     height: 160px;
-    width: 100vw;
     background-color: transparent;
     justify-content: center;
     box-shadow: rgba(108, 170, 231, 0.418) 0px 20px 30px -10px;    
@@ -95,6 +103,37 @@ nav li a.active{
 /* ================= */
 /* Estilos Home page */
 /* ================= */
+
+/* ======================== */
+/* Estilos das seções de navegação */
+/* ======================== */
+#inicio,
+#atividades,
+#doacoes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Faz a seção ocupar toda a altura da tela */
+    min-height: 100vh;
+    padding: 20px;
+}
+
+#inicio {
+    /* Exemplo: Um fundo claro para diferenciar */
+    background-color: #f0f8ff; 
+}
+
+#atividades {
+    /* Exemplo: Um fundo um pouco mais escuro */
+    background-color: #e6e6fa;
+}
+
+#doacoes {
+    /* Exemplo: Outro fundo para diferenciar */
+    background-color: #f5f5dc;
+}
 
 /* ================== */
 /* Estilos Atividades */
