@@ -48,10 +48,10 @@ main p {
     text-align: justify;
 }
 
+
 nav li a {
     text-decoration: none;
     color: black;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 nav li a:hover,
@@ -62,17 +62,21 @@ nav li a.active{
     
 }
 
-
 .nav-principal {
     display: flex;
-    align-items: center; 
+    align-items: center;
     padding: 10px 20px;
 }
 
 .nav-principal img {
-    padding: 40px;
+    padding: 40px 40px;
     margin: 0 40px;
     width: 400px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-principal img:hover {
+    transform: scale(1.05); 
 }
 
 .menu_esquerda,
@@ -83,7 +87,7 @@ nav li a.active{
     margin: 0;
     font-size: 20px;
     flex-grow: 1;
-    margin-top: 50px; 
+    padding-top: 20px;
 }
 /* ================= */
 /* Estilos Home page */
@@ -111,8 +115,8 @@ nav li a.active{
 
 .galeria-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr); /* Define exatamente 4 colunas iguais */
+    gap: 20px; /* Espaço entre as fotos */
     padding: 20px;
     margin: 0 1px;
     
@@ -121,7 +125,7 @@ nav li a.active{
 .galeria-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Garante que a foto preencha o espaço sem distorcer */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
@@ -143,27 +147,27 @@ nav li a.active{
 
 footer {
     height: 80px;
-    background-color: #304758;
-    color: #fff;
+    background-color: #304758; /* Cor sólida para o rodapé */
+    color: #fff; /* Cor do texto no rodapé */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: auto;
+    margin-top: auto; /* Garante que o rodapé fique na parte inferior */
 }
 
 /* ========================== */
 /* Estilo do modal (lightbox) */
 /* ========================== */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
+    display: none; /* Inicia oculto */
+    position: fixed; /* Fixa o modal na tela */
+    z-index: 1; /* Garante que fique por cima de tudo */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
+    overflow: auto; /* Adiciona scroll se a imagem for grande */
+    background-color: rgba(0, 0, 0, 0.9); /* Fundo semi-transparente */
     justify-content: center;
     align-items: center;
 }
@@ -247,7 +251,7 @@ footer {
     .galeria-container {
         grid-template-columns: repeat(1, 1fr);
     }
-    .h1_galeria {
+    .titulo-galeria {
         text-align: center;
         font-size: 24px;
         margin: 20px;
