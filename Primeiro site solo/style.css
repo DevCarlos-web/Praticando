@@ -40,7 +40,9 @@ header {
     display: flex;
     padding: 20px 0;
     height: 160px;
-    background-color: transparent;
+    background-image: url(imagens/header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     justify-content: center;
     box-shadow: rgba(108, 170, 231, 0.418) 0px 20px 30px -10px;    
 }
