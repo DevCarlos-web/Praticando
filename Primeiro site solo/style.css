@@ -17,9 +17,9 @@ body {
     
     /* Configuração da imagem de fundo */
     background-image: url('imagens/header.png');
-    background-repeat: no-repeat; /* Impede que a imagem se repita */
-    background-size: cover; /* Faz com que a imagem cubra toda a área */
-    background-attachment: fixed; /* O fundo permanece fixo ao rolar a página */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 /* ============================ */
 /* Estilos do Cabeçalho e Nav   */
@@ -51,25 +51,26 @@ main p {
 nav li a {
     text-decoration: none;
     color: black;
-    /* Sombra para facilitar a leitura */
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 nav li a:hover,
 nav li a.active{
     text-decoration: underline;
+    text-decoration-color: #52adf7;
+    text-underline-offset: 5px;
     
 }
 
 
 .nav-principal {
     display: flex;
-    align-items: center;
+    align-items: center; 
     padding: 10px 20px;
 }
 
 .nav-principal img {
-    padding: 40px 40px;
+    padding: 40px;
     margin: 0 40px;
     width: 400px;
 }
@@ -82,7 +83,7 @@ nav li a.active{
     margin: 0;
     font-size: 20px;
     flex-grow: 1;
-    padding-top: 20px;
+    margin-top: 50px; 
 }
 /* ================= */
 /* Estilos Home page */
@@ -110,8 +111,8 @@ nav li a.active{
 
 .galeria-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Define exatamente 4 colunas iguais */
-    gap: 20px; /* Espaço entre as fotos */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
     padding: 20px;
     margin: 0 1px;
     
@@ -120,7 +121,7 @@ nav li a.active{
 .galeria-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que a foto preencha o espaço sem distorcer */
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
@@ -134,33 +135,35 @@ nav li a.active{
     text-align: center;
 }
 
+
+
 /* =================== */
 /* Estilos do Rodapé   */
 /* =================== */
 
 footer {
-    height: px;
-    background-color: #304758; /* Cor sólida para o rodapé */
-    color: #fff; /* Cor do texto no rodapé */
+    height: 80px;
+    background-color: #304758;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: auto; /* Garante que o rodapé fique na parte inferior */
+    margin-top: auto;
 }
 
 /* ========================== */
 /* Estilo do modal (lightbox) */
 /* ========================== */
 .modal {
-    display: none; /* Inicia oculto */
-    position: fixed; /* Fixa o modal na tela */
-    z-index: 1; /* Garante que fique por cima de tudo */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Adiciona scroll se a imagem for grande */
-    background-color: rgba(0, 0, 0, 0.9); /* Fundo semi-transparente */
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
     justify-content: center;
     align-items: center;
 }
@@ -219,4 +222,34 @@ footer {
 .seta:hover {
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 50px;
+}
+
+/* ======================== */
+/* Responsividade da Galeria */
+/* ======================== */
+
+/* Para telas de até 1200px (Ex: tablets em modo paisagem) */
+@media (max-width: 1200px) {
+    .galeria-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Para telas de até 768px (Ex: tablets em modo retrato) */
+@media (max-width: 768px) {
+    .galeria-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Para telas de até 480px (Ex: a maioria dos celulares) */
+@media (max-width: 480px) {
+    .galeria-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .h1_galeria {
+        text-align: center;
+        font-size: 24px;
+        margin: 20px;
+    }
 }
