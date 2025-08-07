@@ -299,10 +299,3 @@ footer {
         margin: 20px;
     }
 }
-
-/* Torna o conteúdo invisível e evita que ocupe espaço */
-.ocultar-conteudo {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease, visibility 0s 0.3s;
-}
