@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Monitora a rolagem da página para atualizar o link ativo
+    // Monitora a rolagem da página
     const observerOptions = {
         root: null,
-        rootMargin: '-50% 0px -50% 0px', // Ativa o link quando a seção está no meio da tela
+        rootMargin: '-50% 0px -50% 0px', 
         threshold: 0
     };
     
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // Lógica para que a navegação interna funcione corretamente ao clicar
+    // Lógica para que a navegação interna 
     navLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             const href = this.getAttribute('href');

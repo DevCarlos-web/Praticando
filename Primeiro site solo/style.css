@@ -15,6 +15,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     
+    
     /* Configuração da imagem de fundo */
     background-image: url('imagens/header.png');
     background-repeat: no-repeat;
@@ -49,13 +50,13 @@ header {
 
 main {
     display: flex;
-    justify-content: center;
+    justify-content:center;
     flex-direction: column;
-    margin: 0px 350px;
+    margin: 350px;
+    background-color: red;
+    
 }
-main h1 {
-  margin-bottom: 20px;
-}
+
 main p {
     margin-bottom: 20px;
     text-align: justify;
@@ -79,6 +80,8 @@ nav li a.active{
     display: flex;
     align-items: center;
     padding: 10px 20px;
+    justify-content: space-between; /* Novo: Espaça os elementos */
+    position: relative; /* Adicionado: Para posicionar o logo de forma absoluta */
 }
 
 .nav-principal img {
@@ -111,13 +114,14 @@ nav li a.active{
 /* ======================== */
 #inicio,
 #atividades,
-#doacoes {
+#doacoes,
+#contato,
+#quemsomos {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:flex-start;
     align-items: center;
     text-align: center;
-    /* Faz a seção ocupar toda a altura da tela */
     min-height: 100vh;
     padding: 20px;
     color: #333; /* Adicionado: Garante que a cor do texto seja a mesma */
@@ -165,6 +169,7 @@ nav li a.active{
     gap: 20px; /* Espaço entre as fotos */
     padding: 20px;
     margin: 0 1px;
+    
     
 }
 
